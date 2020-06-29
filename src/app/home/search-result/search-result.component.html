@@ -1,0 +1,36 @@
+<h5>Search Results</h5>
+<div class="modal-body">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Slot Id</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Price in GBP</th>
+          <th scope="col">Price in EUR</th>
+          <th scope="col">Availabilities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of countries">
+          <th scope="row">{{ result.id }}</th>
+          <td>{{ result.attributes.starts | date: 'dd-MMM-yy h:mm:ss' }}</td>
+          <td>{{ getDuration(result.attributes.starts, result.attributes.ends) }}</td>
+          <td>{{ result.attributes.price }}</td>
+          <td>{{ result.attributes.price * 1.13 }}</td>
+          <td>{{ result.attributes.availabilities }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="d-flex justify-content-between p-2" *ngIf="collectionSize > 0">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"> </ngb-pagination>
+
+  <select class="custom-select" style="width: auto;" [(ngModel)]="pageSize">
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="20">20 items per page</option>
+    <option [ngValue]="50">50 items per page</option>
+  </select>
+</div>

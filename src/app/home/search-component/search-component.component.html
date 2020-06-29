@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">PlayFinder</h4>
+</div>
+<app-loader [isLoading]="isLoading"></app-loader>
+<div class="modal-body">
+  <form novalidate [formGroup]="schoolGroup">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="bmd-label-floating">Patch Id</label>
+          <input type="text" class="form-control" formControlName="patchId" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="bmd-label-floating">Start Date</label>
+          <input type="date" class="form-control" formControlName="startDate" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label class="bmd-label-floating">End Date</label>
+          <input type="date" class="form-control" formControlName="endDate" />
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" (click)="onSubmit()">Search</button>
+    </div>
+  </form>
+</div>
