@@ -44,4 +44,18 @@ describe('SearchComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Check values populated', () => {
+    // Arrange
+    const element = fixture.nativeElement;
+    const patchIdInput: any = document.getElementById('patchId');
+    const startDateInput: any = document.getElementById('startDate');
+    const endDateInput: any = document.getElementById('endDate');
+    fixture.detectChanges();
+
+    // Assert
+    expect(patchIdInput.value).toBe('32990');
+    expect(startDateInput.value).toBe('2018-01-09');
+    expect(endDateInput.value).toBe('2018-01-15');
+  });
 });

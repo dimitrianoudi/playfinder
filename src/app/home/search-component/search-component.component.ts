@@ -17,11 +17,10 @@ export class SearchComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      console.log(params); // {order: "popular"}
       this.schoolGroup = this.fb.group({
-        patchId: [params['patchid'] != null ? +params['patchid'] : '32990', [Validators.required]],
-        startDate: [params['start'] != null ? params['start'] : '2018-01-09', [Validators.required]],
-        endDate: [params['end'] != null ? params['end'] : '2018-01-15', [Validators.required]],
+        patchId: [params != null && params['patchid'] != null ? +params['patchid'] : '32990', [Validators.required]],
+        startDate: [params != null && params['start'] != null ? params['start'] : '2018-01-09', [Validators.required]],
+        endDate: [params != null && params['end'] != null ? params['end'] : '2018-01-15', [Validators.required]],
       });
     });
   }
